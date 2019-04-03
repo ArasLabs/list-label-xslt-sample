@@ -8,12 +8,14 @@ This project and the following release notes have been migrated from the old Ara
 
 Release | Notes
 --------|--------
+[v2.0.0](https://github.com/ArasLabs/list-label-xslt-sample/releases/tag/v2.0.0) | Verified on 11.0 SP12, 15; Upgraded Method & Report code to support current open release (11.0 SP12)
 [v1](https://github.com/ArasLabs/list-label-xslt-sample/releases/tag/v1) | Initial Release
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
+[v2.0.0](https://github.com/ArasLabs/list-label-xslt-sample/releases/tag/v2.0.0) | 10.0+, 11.0+
 [v1](https://github.com/ArasLabs/list-label-xslt-sample/releases/tag/v1) | 9.2.0
 
 ## Installation
@@ -45,12 +47,12 @@ Project | Aras
 12. Search for the Part ItemType and open for editing. 
 13. In the Reports tab of the Part ItemType select **Pick Related**, and then click **New Relationship** icon next to it. 
 14. In the resulting Dialog Box search and select **Part Report With Label**, and then click **Return Selected icon** (checkmark icon). 
-15. Go to the Method[...] column and press "F2". Search and select **Part Report With Label** Method, and then click **Return Selected icon** (checkmark icon).
-16. Save, unlock, and close the Part ItemType.
+15. Save, unlock, and close the Part ItemType.
 
 ## Usage
 
-![Example Screenshot](./Screenshots/report-with-labels-and-values.png)
+![Example Screenshot](./Screenshots/Report-screenshot-2.png)
+Note: Make/Buy Labels altered for Demo purposes in the above.
 
 1. Login to Aras.
 2. Navigate to **Design > Parts**. 
