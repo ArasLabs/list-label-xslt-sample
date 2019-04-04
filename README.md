@@ -52,7 +52,7 @@ Project | Aras
 ## Usage
 
 ![Example Screenshot](./Screenshots/Report-screenshot-2.png)
-Note: Make/Buy Labels altered for Demo purposes in the above.
+>Note: The default Make/Buy list labels have been altered for demo purposes in the screenshot above.
 
 1. Login to Aras.
 2. Navigate to **Design > Parts**. 
