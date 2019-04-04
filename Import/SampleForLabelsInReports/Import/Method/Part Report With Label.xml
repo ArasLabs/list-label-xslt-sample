@@ -15,7 +15,9 @@ for (var i = 0; i < partResults.getItemCount(); i++) {
     var partMakeBuy = "";
     partMakeBuy = thisPart.getProperty("make_buy","");
     //blank out error items and continue loop
-    if (partMakeBuy === null || partMakeBuy === "" || partMakeBuy === undefined){continue;}
+    if (partMakeBuy === "") {
+        continue;
+    }
     var queryListItem = new Item("List", "get");
     queryListItem.setAttribute("select", "name");
     queryListItem.setProperty("name", "Make Buy");
