@@ -38,7 +38,7 @@
 			      <body topmargin="50" leftmargin="50">
 				        <table border="0" cellspacing="0" cellpadding="0" width="950">
 					          <tr>
-						            <td width="150" uniqueID="ms__id2"/>
+						            <td width="150" />
 						            <td width="200" uniqueID="ms__id3"/>
 						            <td width="150" uniqueID="ms__id4"/>
 						            <td width="150" uniqueID="ms__id5"/>
