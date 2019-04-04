@@ -22,7 +22,6 @@ for (var i = 0; i < partResults.getItemCount(); i++) {
     var relatedItem = new Item("Value", "get");
     relatedItem.setAttribute("select", "label,value");
     relatedItem.setProperty("value", partMakeBuy);
-    relatedItem.apply();
     queryListItem.addRelationship(relatedItem);
     var listWithLabelValue = queryListItem.apply();
     var relatedResults = listWithLabelValue.getRelationships();
