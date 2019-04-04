@@ -13,7 +13,7 @@ var ts = "Generated on: " + d;
 for (var i = 0; i < partResults.getItemCount(); i++) {
     var thisPart = partResults.getItemByIndex(i);
     var partMakeBuy = "";
-    partMakeBuy = thisPart.getProperty("make_buy");
+    partMakeBuy = thisPart.getProperty("make_buy","");
     //blank out error items and continue loop
     if (partMakeBuy === null || partMakeBuy === "" || partMakeBuy === undefined){continue;}
     var queryListItem = new Item("List", "get");
