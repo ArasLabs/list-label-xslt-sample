@@ -12,25 +12,20 @@ var count = partResults.getItemCount();
 var firstPart = partResults.getItemByIndex(0);
 firstPart.setProperty("timestamp", ts);
 
+var MBList = new Item("List","get");
+MBList.setAttribute("select","name");
+MBList.setProperty("name","Make Buy");
+var relatedItem = new Item("Value", "get");
+relatedItem.setAttribute("select", "label,value");
+MBList.addRelationship(relatedItem);
+MBList = MBList.apply();
+
 for (var i = 0; i < count; i++) {
     var thisPart = partResults.getItemByIndex(i);
     var partMakeBuy = "";
     partMakeBuy = thisPart.getProperty("make_buy","");
-    //blank out error items and continue loop
-    if (partMakeBuy === "") {
-        continue;
-    }
-    var queryListItem = new Item("List", "get");
-    queryListItem.setAttribute("select", "name");
-    queryListItem.setProperty("name", "Make Buy");
-    var relatedItem = new Item("Value", "get");
-    relatedItem.setAttribute("select", "label,value");
-    relatedItem.setProperty("value", partMakeBuy);
-    queryListItem.addRelationship(relatedItem);
-    var listWithLabelValue = queryListItem.apply();
-    var relatedResults = listWithLabelValue.getRelationships();
-    var firstResult = relatedResults.getItemByIndex(0);
-    var partMakeBuyLabel = firstResult.getProperty("label");
+    var partMakeBuyValue = MBList.getItemsByXPath("//Item[value='"+partMakeBuy+"']");
+    var partMakeBuyLabel = partMakeBuyValue.getProperty("label");
     thisPart.setProperty("partMakeBuyLabel", partMakeBuyLabel);
 }
 var report = innovator.getItemByKeyedName("Report", "Part Report With Label");
