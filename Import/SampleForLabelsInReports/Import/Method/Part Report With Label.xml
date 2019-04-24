@@ -12,7 +12,6 @@ if (!partResults.isError() && partResults.getItemCount() > 0) {
     var firstPart = partResults.getItemByIndex(0);
     firstPart.setProperty("timestamp", ts);
 }
-firstPart.setProperty("timestamp", ts);
 
 var MBList = new Item("List","get");
 MBList.setAttribute("select","name");
