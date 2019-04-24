@@ -22,7 +22,7 @@ relatedItem.setAttribute("select", "label,value");
 MBList.addRelationship(relatedItem);
 MBList = MBList.apply();
 
-for (var i = 0; i < count; i++) {
+for (var i = 0; i < partResults.getItemCount(); i++) {
     var thisPart = partResults.getItemByIndex(i);
     var partMakeBuy = "";
     partMakeBuy = thisPart.getProperty("make_buy","");
