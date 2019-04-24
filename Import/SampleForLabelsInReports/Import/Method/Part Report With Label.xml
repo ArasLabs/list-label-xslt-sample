@@ -23,7 +23,6 @@ MBList = MBList.apply();
 
 for (var i = 0; i < partResults.getItemCount(); i++) {
     var thisPart = partResults.getItemByIndex(i);
-    var partMakeBuy = "";
     partMakeBuy = thisPart.getProperty("make_buy","");
     var partMakeBuyValue = MBList.getItemsByXPath("//Item[value='"+partMakeBuy+"']");
     var partMakeBuyLabel = partMakeBuyValue.getProperty("label","");
