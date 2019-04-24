@@ -8,7 +8,10 @@ var partResults = queryItem.apply();
 var dt = new Date(); 
 var d = dt.toLocaleString(navigator.language, {timeZoneName: 'short'});
 var ts = "Generated on: " + d;
-var firstPart = partResults.getItemByIndex(0);
+if (!partResults.isError() && partResults.getItemCount() > 0) {
+    var firstPart = partResults.getItemByIndex(0);
+    firstPart.setProperty("timestamp", ts);
+}
 firstPart.setProperty("timestamp", ts);
 
 var MBList = new Item("List","get");
