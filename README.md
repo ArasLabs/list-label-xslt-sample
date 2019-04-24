@@ -49,7 +49,7 @@ Project | Aras
 
 ## Usage
 
-![Example Screenshot](./Screenshots/Report-screenshot-2.png)
+![Example Screenshot](Screenshots/Report-screenshot-2.PNG)
 >Note: The default Make/Buy list labels have been altered for demo purposes in the screenshot above.
 
 1. Login to Aras.
