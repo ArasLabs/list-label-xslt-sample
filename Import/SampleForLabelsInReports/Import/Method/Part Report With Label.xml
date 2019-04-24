@@ -25,7 +25,7 @@ for (var i = 0; i < count; i++) {
     var partMakeBuy = "";
     partMakeBuy = thisPart.getProperty("make_buy","");
     var partMakeBuyValue = MBList.getItemsByXPath("//Item[value='"+partMakeBuy+"']");
-    var partMakeBuyLabel = partMakeBuyValue.getProperty("label");
+    var partMakeBuyLabel = partMakeBuyValue.getProperty("label","");
     thisPart.setProperty("partMakeBuyLabel", partMakeBuyLabel);
 }
 var report = innovator.getItemByKeyedName("Report", "Part Report With Label");
