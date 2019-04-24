@@ -1,38 +1,37 @@
-﻿<AML>
+<AML>
  <Item type="Method" id="394955B7C7DE4AEEAC8B0DFD903C16FD" action="add">
-  <classification>/*</classification>
   <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[    var innovator = new Innovator();
-	var queryItem = new Item("Part","do_l10n");
-	queryItem.setAttribute("initial_action","get");
-	queryItem.setAttribute("select","item_number,name,make_buy,cost");
-	var partResults = queryItem.apply();
-	
-	for (var i=0; i<partResults.getItemCount(); i++){
-	 var thisPart = partResults.getItemByIndex(i);
-	 var partMakeBuy = "";
-	 partMakeBuy = thisPart.getProperty("make_buy");
-	 
-     var queryListItem = new Item("List","do_l10n");
-	 queryListItem.setAttribute("initial_action","get");
-     queryListItem.setAttribute("select","name");
-     queryListItem.setProperty("name", "Make Buy");
-     
-     var relatedItem = new Item("Value","do_l10n");
-     relatedItem.setAttribute("select","label,value");
-     relatedItem.setAttribute("initial_action","get");    
-	 relatedItem.setProperty("value", partMakeBuy);
-	 queryListItem.addRelationship(relatedItem);
-	 var listWithLabelValue = queryListItem.apply();
-	 var relatedResults = listWithLabelValue.getRelationships();
-	 var firstResult = relatedResults.getItemByIndex(0);
-	 var partMakeBuyLabel = firstResult.getProperty("label");
-	 thisPart.setProperty("partMakeBuyLabel", partMakeBuyLabel);
-	}
-	var report = innovator.getItemByKeyedName("Report","Part Report With Label");
-	var style = report.getProperty("xsl_stylesheet");
-	var html = partResults.applyStylesheet(style,"text");
-	return html;]]></method_code>
+var queryItem = new Item("Part", "get");
+queryItem.setAttribute("select", "item_number,name,make_buy,cost");
+var partResults = queryItem.apply();
+var dt = new Date(); 
+var d = dt.toLocaleString(navigator.language, {timeZoneName: 'short'});
+var ts = "Generated on: " + d;
+if (!partResults.isError() && partResults.getItemCount() > 0) {
+    var firstPart = partResults.getItemByIndex(0);
+    firstPart.setProperty("timestamp", ts);
+}
+
+var MBList = new Item("List","get");
+MBList.setAttribute("select","name");
+MBList.setProperty("name","Make Buy");
+var relatedItem = new Item("Value", "get");
+relatedItem.setAttribute("select", "label,value");
+MBList.addRelationship(relatedItem);
+MBList = MBList.apply();
+
+for (var i = 0; i < partResults.getItemCount(); i++) {
+    var thisPart = partResults.getItemByIndex(i);
+    var partMakeBuy = thisPart.getProperty("make_buy","");
+    var partMakeBuyValue = MBList.getItemsByXPath("//Item[value='"+partMakeBuy+"']");
+    var partMakeBuyLabel = partMakeBuyValue.getProperty("label","");
+    thisPart.setProperty("partMakeBuyLabel", partMakeBuyLabel);
+}
+var report = innovator.getItemByKeyedName("Report", "Part Report With Label");
+var style = report.getProperty("xsl_stylesheet");
+var html = partResults.applyStylesheet(style, "text");
+return html;]]></method_code>
   <method_type>JavaScript</method_type>
   <name>Part Report With Label</name>
  </Item>

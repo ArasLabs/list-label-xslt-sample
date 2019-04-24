@@ -1,4 +1,4 @@
-﻿<AML>
+<AML>
  <Item type="Report" id="F8B58D8A57D14ACC960B035EAB7196DC" action="add">
   <location>client</location>
   <method keyed_name="Part Report With Label" type="Method">
@@ -9,100 +9,99 @@
   <name>Part Report With Label</name>
   <target>window</target>
   <type>itemtype</type>
-  <xsl_stylesheet><![CDATA[<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:user-scripts" xmlns:aras="http://www.aras-corp.com">
-  <xsl:output method="html" omit-xml-declaration="yes" standalone="yes" indent="yes"></xsl:output>
-  <xsl:template match="/">
-    <html>
-      <head></head>
-      <style type="text/css" userData="Global">.cellSolid {border-top:1px #000000 solid;border-right:1px #000000 solid;border-bottom:1px #000000 solid;border-left:1px #000000 solid;}
-	.cellSolidTopRight {border-top:1px #000000 solid;border-right:1px #000000 solid;}
-	.cellSolidTopLeft {border-top:1px #000000 solid;border-left:1px #000000 solid;}
-	.cellSolidRightBottom {border-right:1px #000000 solid;border-bottom:1px #000000 solid;}
-	.cellSolidBottomLeft {border-bottom:1px #000000 solid;border-left:1px #000000 solid;}
-	.cellSolidTop {border-top:1px #000000 solid;}
-	.cellSolidRight {border-right:1px #000000 solid;}
-	.cellSolidBottom {border-bottom:1px #000000 solid;}
-	.cellSolidLeft {border-left:1px #000000 solid;}
-	.cellDashed {border-top:1px #666666 dashed;border-right:1px #666666 dashed;border-bottom:1px #666666 dashed;border-left:1px #666666 dashed;}
-	.cellDashedTopRight {border-top:1px #666666 dashed;border-right:1px #666666 dashed;}
-	.cellDashedTopLeft {border-top:1px #666666 dashed;border-left:1px #666666 dashed;}
-	.cellDashedBottomRight {border-bottom:1px #666666 dashed;border-right:1px #666666 dashed;}
-	.cellDashedBottomLeft {border-bottom:1px #666666 dashed;border-left:1px #666666 dashed;}
-	.cellDashedTop {border-top:1px #666666 dashed;}
-	.cellDashedRight {border-right:1px #666666 dashed;}
-	.cellDashedBottom {border-bottom:1px #666666 dashed;}
-	.cellDashedLeft {border-left:1px #666666 dashed;}
-	.cellHeader {background-color:#CCCCCC;border-top:1px #000000 solid;border-right:1px #000000 solid;border-bottom:1px #000000 solid;padding:2px;text-align:center;text-transform:capitalize;text-align:center;font-family:helvetica;font-weight:bold;font-size:8pt;}
-	</style>
-      <script>onload = function() {window.resizeTo(900,650);}
-	</script>
-      <body topmargin="50" leftmargin="50">
-        <table border="0" cellspacing="0" cellpadding="0" width="950">
-          <tr>
-            <td width="150" uniqueID="ms__id2"></td>
-            <td width="200" uniqueID="ms__id3"></td>
-            <td width="150" uniqueID="ms__id4"></td>
-            <td width="150" uniqueID="ms__id5"></td>
-            <td width="150" uniqueID="ms__id6"></td>
-	  </tr>
-          <tr valign="top">
-            <td align="left" uniqueID="ms__id77" colspan="9">
-              <img src="../images/Logos/aras_logo.gif" height="80"></img>
-	      </td>
-	  </tr>
-          <tr valign="bottom">
-            <td colspan="2" style="font-family:helvetica;font-size:15pt;color:#DA1943;padding:2px;" align="left" uniqueID="ms__id79">Part Report (with Make/Buy Labels)</td>
-            <td colspan="2" style="font-family:helvetica;font-size:10pt;padding:2px;" align="right" uniqueID="ms__id80">Generated on:              <script>function m00(r, n){r += ""; if (!n) n = 2; while(r.length &lt; n){r = "0" + r;} return r;} var dt = new Date(); var a = top.opener.top.aras; if (a){var s = m00(dt.getUTCFullYear(),4)+"-"+m00((dt.getUTCMonth()+1))+"-"+m00(dt.getUTCDate())+"T"+m00(dt.getUTCHours())+":"+m00(dt.getUTCMinutes())+":"+m00(dt.getUTCSeconds()); s = a.IomInnovator.GetI18NSessionContext().ConvertUtcDateTimeToNeutral(s, "yyyy-MM-ddTHH:mm:ss"); s = a.convertFromNeutral(s, "date", "short_date"); document.write(s);}</script>
-            </td>
-	  </tr>
-          <tr valign="top">
-            <td class="cellHeader" uniqueID="ms__id81" align="left" colspan="" rowspan="" height="" width="" style="border-left:1px #666666 solid;">Part Number</td>
-            <td class="cellHeader" uniqueID="ms__id82">Name</td>
-            <td class="cellHeader" uniqueID="ms__id83">Cost</td>
-            <td class="cellHeader" uniqueID="ms__id84">Make/Buy</td>
-            <td class="cellHeader" uniqueID="ms__id84">Make/Buy Label</td>
-	  </tr>
-          <xsl:for-each select="//Item">
-            <xsl:sort select="name" order="ascending" case-order="upper-first" data-type="text"></xsl:sort>
-            <tr valign="center">
-              <td style="font-family:helvetica;font-size:8pt;font-weight:bold;border-left:1px #666666 solid;padding:2px;" class="cellSolidRightBottom" align="left" uniqueID="ms__id90" colspan="" rowspan="" height="" width="">
-                <xsl:value-of select="item_number"></xsl:value-of>
-                <xsl:if test="item_number='' or not(item_number)">
-                  <xsl:text> </xsl:text>
-	        </xsl:if>
-	      </td>
-              <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left" uniqueID="ms__id91">
-                <xsl:value-of select="name"></xsl:value-of>
-                <xsl:if test="name='' or not(name)">
-                  <xsl:text> </xsl:text>
-	        </xsl:if>
-	      </td>
-              <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left" uniqueID="ms__id92">
-                <xsl:value-of select="cost"></xsl:value-of>
-                <xsl:if test="cost='' or not(cost)">
-                  <xsl:text> </xsl:text>
-	        </xsl:if>
-	      </td>
-              <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left" uniqueID="ms__id93">
-                <xsl:value-of select="make_buy"></xsl:value-of>
-                <xsl:if test="make_buy='' or not(make_buy)">
-                  <xsl:text> </xsl:text>
-	        </xsl:if>
-	      </td>
-              <td style="font-family:helvetica;font-size:8pt;padding:2px;" class="cellSolidRightBottom" align="left" uniqueID="ms__id93">
-                <xsl:value-of select="partMakeBuyLabel"></xsl:value-of>
-                <xsl:if test="partMakeBuyLabel='' or not(partMakeBuyLabel)">
-                  <xsl:text> </xsl:text>
-	        </xsl:if>
-	      </td>
-	     </tr>
-	   </xsl:for-each>
-	  </table>
-	 </body>
-      <script src="../../javascript/PopupMenu.js"></script>
-    </html>
-	 </xsl:template>
-
-	</xsl:stylesheet>]]></xsl_stylesheet>
+  <xsl_stylesheet><![CDATA[<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+    xmlns:user="urn:user-scripts"
+    xmlns:aras="http://www.aras-corp.com" version="1.0">
+    <parsererror
+        xmlns="http://www.w3.org/1999/xhtml" style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+        <h3>This page contains the following errors:</h3>
+        <div style="font-family:monospace;font-size:12px">
+			error on line 70 at column 57: attributes construct error
+		</div>
+        <h3>Below is a rendering of the page up to the first error.</h3>
+    </parsererror>
+    <xsl:output method="html" omit-xml-declaration="yes" standalone="yes" indent="yes"/>
+    <xsl:template match="/">
+        <html>
+            <head/>
+            <style type="text/css" userData="Global">
+				.cellSolid {border-top:1px #000000 solid;border-right:1px #000000 solid;border-bottom:1px #000000 solid;border-left:1px #000000 solid;}
+				.cellSolidTopRight {border-top:1px #000000 solid;border-right:1px #000000 solid;}
+				.cellSolidTopLeft {border-top:1px #000000 solid;border-left:1px #000000 solid;}
+				.cellSolidRightBottom {border-right:1px #000000 solid;border-bottom:1px #000000 solid;}
+				.cellSolidBottomLeft {border-bottom:1px #000000 solid;border-left:1px #000000 solid;}
+				.cellSolidTop {border-top:1px #000000 solid;}
+				.cellSolidRight {border-right:1px #000000 solid;}
+				.cellSolidBottom {border-bottom:1px #000000 solid;}
+				.cellSolidLeft {border-left:1px #000000 solid;}
+				.cellDashed {border-top:1px #666666 dashed;border-right:1px #666666 dashed;border-bottom:1px #666666 dashed;border-left:1px #666666 dashed;}
+				.cellDashedTopRight {border-top:1px #666666 dashed;border-right:1px #666666 dashed;}
+				.cellDashedTopLeft {border-top:1px #666666 dashed;border-left:1px #666666 dashed;}
+				.cellDashedBottomRight {border-bottom:1px #666666 dashed;border-right:1px #666666 dashed;}
+				.cellDashedBottomLeft {border-bottom:1px #666666 dashed;border-left:1px #666666 dashed;}
+				.cellDashedTop {border-top:1px #666666 dashed;}
+				.cellDashedRight {border-right:1px #666666 dashed;}
+				.cellDashedBottom {border-bottom:1px #666666 dashed;}
+				.cellDashedLeft {border-left:1px #666666 dashed;}
+				.cellHeader {background-color:#CCCCCC;border-top:1px #000000 solid;border-right:1px #000000 solid;border-bottom:1px #000000 solid;padding:2px;text-align:center;text-transform:capitalize;text-align:center;font-family:helvetica;font-weight:bold;font-size:8pt;}
+				.reportTitle {font-family:helvetica;font-size:15pt;color:#DA1943;padding:2px;}
+				.reportTime {font-family:helvetica;font-size:10pt;padding:2px;}
+				.itemNumber {font-family:helvetica;font-size:8pt;font-weight:bold;border-left:1px #666666 solid;padding:2px;border-right:1px #000000 solid;}
+				.itemValue {font-family:helvetica;font-size:8pt;padding:2px;border-right:1px #000000 solid;}
+			</style>
+            <body topmargin="50" leftmargin="50">
+                <table border="0" cellspacing="0" cellpadding="0" width="950">
+                    <tr>
+                        <td width="150"/>
+                        <td width="200"/>
+                        <td width="150"/>
+                        <td width="150"/>
+                        <td width="150"/>
+                    </tr>
+                    <tr valign="top">
+                        <td align="left" colspan="9">
+                            <img src="../images/aras-innovator.svg" height="40"/>
+                        </td>
+                    </tr>
+                    <tr valign="bottom">
+                        <td colspan="2" class="reportTitle" align="left">Part Report (with Make/Buy Labels)</td>
+                        <td colspan="3" class="reportTime" align="right">
+                            <xsl:value-of select="//Item/timestamp"/>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="cellHeader" align="left" colspan="" rowspan="" height="" width="" style="border-left:1px #666666 solid;">Part Number</td>
+                        <td class="cellHeader">Name</td>
+                        <td class="cellHeader">Cost</td>
+                        <td class="cellHeader">Make/Buy Value</td>
+                        <td class="cellHeader">Make/Buy Label</td>
+                    </tr>
+                    <xsl:for-each select="//Item">
+                        <xsl:sort select="name" order="ascending" case-order="upper-first" data-type="text"/>
+                        <tr valign="center">
+                            <td class="itemNumber" align="left">
+                                <xsl:value-of select="item_number"/>
+                            </td>
+                            <td class="itemValue" align="left">
+                                <xsl:value-of select="name"/>
+                            </td>
+                            <td class="itemValue" align="left">
+                                <xsl:value-of select="cost"/>
+                            </td>
+                            <td class="itemValue" align="left">
+                                <xsl:value-of select="make_buy"/>
+                            </td>
+                            <td class="itemValue" align="left">
+                                <xsl:value-of select="partMakeBuyLabel"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each>
+                </table>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>]]></xsl_stylesheet>
  </Item>
 </AML>
