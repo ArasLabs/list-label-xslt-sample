@@ -8,7 +8,6 @@ var partResults = queryItem.apply();
 var dt = new Date(); 
 var d = dt.toLocaleString(navigator.language, {timeZoneName: 'short'});
 var ts = "Generated on: " + d;
-var count = partResults.getItemCount();
 var firstPart = partResults.getItemByIndex(0);
 firstPart.setProperty("timestamp", ts);
 
