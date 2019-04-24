@@ -4,8 +4,6 @@ This sample shows a way to get and display "Labels" in Reports by customizing St
 
 ## History
 
-This project and the following release notes have been migrated from the old Aras Projects page.
-
 Release | Notes
 --------|--------
 [v2.0.0](https://github.com/ArasLabs/list-label-xslt-sample/releases/tag/v2.0.0) | Verified on 11.0 SP12, 15; Upgraded Method & Report code to support current open release (11.0 SP12)
